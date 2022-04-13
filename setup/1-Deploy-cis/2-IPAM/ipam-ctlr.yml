@@ -38,5 +38,5 @@ spec:
       volumes:
       - name: samplevol
         persistentVolumeClaim:
-          claimName: pvc-local
+          claimName: pvc-ipam
           

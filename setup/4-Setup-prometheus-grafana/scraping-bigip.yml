@@ -7,7 +7,7 @@ metadata:
     k8s-app: bigip-metrics
 subsets:
   - addresses:
-      - ip: 192.168.3.103
+      - ip: 10.1.1.5
     ports:
       - name: metrics
         port: 443
@@ -44,7 +44,7 @@ spec:
         name: basic-auth
         key: user
     interval: 30s
-    path: /mgmt/shared/telemetry/pullconsumer/My_Pull_Consumer
+    path: /mgmt/shared/telemetry/namespace/Stats/pullconsumer/Prometheus
     port: metrics
     scheme: https
     tlsConfig:
@@ -61,6 +61,6 @@ metadata:
   name: basic-auth
   namespace: monitoring
 data:
-  password: S29zdGFzMTIzCg== # Kostas123
+  password: Q0lTbGFiMTIzCg== # CISlab123
   user: YWRtaW4= # admin
 type: Opaque

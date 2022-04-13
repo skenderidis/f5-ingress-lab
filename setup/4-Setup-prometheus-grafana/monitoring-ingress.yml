@@ -4,9 +4,6 @@ metadata:
   name: prometheus
   namespace: monitoring
   annotations:
-  #  nginx.ingress.kubernetes.io/rewrite-target: /test-kibana
-  # enable to use secure backend
-  #  nginx.org/ssl-services: "kubernetes-dashboard"
 spec:
   ingressClassName: nginx-plus
   rules:
@@ -28,9 +25,6 @@ metadata:
   name: grafana
   namespace: monitoring
   annotations:
-  #  nginx.ingress.kubernetes.io/rewrite-target: /test-kibana
-  # enable to use secure backend
-  #  nginx.org/ssl-services: "kubernetes-dashboard"
 spec:
   ingressClassName: nginx-plus
   rules:
