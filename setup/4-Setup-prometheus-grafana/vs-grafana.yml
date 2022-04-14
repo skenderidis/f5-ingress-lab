@@ -1,0 +1,34 @@
+apiVersion: "cis.f5.com/v1"
+kind: VirtualServer
+metadata:
+  name: grafana-vs
+  namespace: nginx
+  labels:
+    f5cr: "true"
+spec:
+  virtualServerAddress: "10.1.10.39"
+  virtualServerName: "grafana-vs"
+  iRules:
+  - /Common/grafana
+  pools:
+  - path: /
+    service: nginx-plus
+    servicePort: 80
+
+---
+apiVersion: "cis.f5.com/v1"
+kind: VirtualServer
+metadata:
+  name: prometheus-vs
+  namespace: nginx
+  labels:
+    f5cr: "true"
+spec:
+  virtualServerAddress: "10.1.10.38"
+  virtualServerName: "prometheus-vs"
+  iRules:
+  - /Common/prometheus
+  pools:
+  - path: /
+    service: nginx-plus
+    servicePort: 80

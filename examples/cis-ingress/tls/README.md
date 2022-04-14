@@ -87,8 +87,8 @@ kubectl apply -f multi-tls-cert-bigip.yml
 Try accessing both services as per the examples below. We use curl's -k option to turn off certificate verification and the -v option to get the TLS certificate details
 
 ```
-curl -vk https://tls1.f5demo.local --resolve tls1.f5demo.local:443:10.1.10.53
-curl -vk https://tls2.f5demo.local --resolve tls2.f5demo.local:443:10.1.10.53
+curl -vk https://multitls1.f5demo.local --resolve multitls1.f5demo.local:443:10.1.10.53
+curl -vk https://multitls2.f5demo.local --resolve multitls2.f5demo.local:443:10.1.10.53
 ```
 
 You should see the following output. Notice that the `CN` value change based on the FQDN as a different certificate gets presented to the client.

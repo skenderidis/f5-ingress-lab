@@ -4,7 +4,7 @@ metadata:
   name: basic-ingress
   annotations:
     # Provide an IP address for the BIG-IP Virtual Server.
-    virtual-server.f5.com/ip: "10.1.10.40"
+    virtual-server.f5.com/ip: "10.1.10.49"
   # Load balancing algorithm
     virtual-server.f5.com/balance: "round-robin"
   # Specify the port you want to handle requests

@@ -21,7 +21,7 @@ Access the service as per the examples below.
 ```
 curl http://10.1.10.40 
 curl http://10.1.10.40/test.php
-curl http://test.f5demo.local --resolve test.f5demo.local:80:10.1.10.40
+curl http://test.f5demo.local --resolve test.f5demo.local:80:10.1.10.49
 ```
 
 In all cases you should see similar output:
