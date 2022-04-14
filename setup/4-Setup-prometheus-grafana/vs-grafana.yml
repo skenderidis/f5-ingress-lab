@@ -6,7 +6,7 @@ metadata:
   labels:
     f5cr: "true"
 spec:
-  virtualServerAddress: "10.1.10.39"
+  virtualServerAddress: "10.1.10.19"
   virtualServerName: "grafana-vs"
   iRules:
   - /Common/grafana
@@ -24,7 +24,7 @@ metadata:
   labels:
     f5cr: "true"
 spec:
-  virtualServerAddress: "10.1.10.38"
+  virtualServerAddress: "10.1.10.20"
   virtualServerName: "prometheus-vs"
   iRules:
   - /Common/prometheus
