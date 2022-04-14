@@ -1,3 +1,18 @@
+apiVersion: cis.f5.com/v1
+kind: TLSProfile
+metadata:
+  name: wildcard-tls
+  namespace: nginx
+  labels:
+    f5cr: "true"
+spec:
+  hosts:
+    - "*.f5demo.local"
+  tls:
+    termination: edge
+    clientSSL: /Common/clientssl
+    reference: bigip
+---
 apiVersion: "cis.f5.com/v1"
 kind: VirtualServer
 metadata:
@@ -7,6 +22,7 @@ metadata:
     f5cr: "true"
 spec:
   virtualServerAddress: "10.1.10.19"
+  tlsProfileName: wildcard-tls
   virtualServerName: "grafana-vs"
   iRules:
   - /Common/grafana
@@ -25,6 +41,7 @@ metadata:
     f5cr: "true"
 spec:
   virtualServerAddress: "10.1.10.20"
+  tlsProfileName: wildcard-tls
   virtualServerName: "prometheus-vs"
   iRules:
   - /Common/prometheus
