@@ -125,12 +125,14 @@ kubectl get vs
 ```
 
 Save the IP adresses that was assigned by the IPAM for this VirtualServer
+```
+IP=$(kubectl get vs ipam1-hostgroup-vs --template '{{.status.vsAddress}}')
+```
 
 Try accessing the serviceas per the examples below. 
 ```
-curl http://ipam1.f5demo.local/ --resolve ipam1.f5demo.local:80:<IP Address assigned by IPAM>
-curl http://ipam2.f5demo.local/ --resolve ipam2.f5demo.local:80:<IP Address assigned by IPAM>
-
+curl http://ipam1.f5demo.local/ --resolve ipam1.f5demo.local:80:$IP
+curl http://ipam2.f5demo.local/ --resolve ipam2.f5demo.local:80:$IP
 ```
 
 Verify that the traffic was forwarded to the `app1-svc` and `app2-svc` services as per the Hostname.

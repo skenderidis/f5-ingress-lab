@@ -8,6 +8,6 @@ spec:
   l7Policies:
     waf: /Common/basic_waf_policy
   profiles:
-    http: /Common/http-XFF
+    http: /Common/http-xff
     logProfiles:
       - /Common/Log all requests

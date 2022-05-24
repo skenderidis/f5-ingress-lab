@@ -11,6 +11,6 @@ spec:
   policyName: xff-policy
   snat: auto
   pools:
-    path: /
+  - path: /
     service: echo-svc
     servicePort: 80

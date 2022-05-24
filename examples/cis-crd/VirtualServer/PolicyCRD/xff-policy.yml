@@ -6,4 +6,4 @@ metadata:
   name: xff-policy
 spec:
   profiles:
-    http: /Common/http-XFF
+    http: /Common/http-xff
