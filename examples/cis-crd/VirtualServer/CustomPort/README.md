@@ -26,7 +26,7 @@ spec:
 
 Create the VS CRD resource. 
 ```
-kubectl apply -f custom-http-port.yml.yml
+kubectl apply -f custom-http-port.yml
 ```
 CIS will create a Virtual Server on BIG-IP with VIP `10.1.10.114` and attaches a policy which forwards all traffic to pool echo-svc when the Host Header is equal to `custom.f5demo.local`.   
 
