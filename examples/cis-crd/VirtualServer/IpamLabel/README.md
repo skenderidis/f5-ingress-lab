@@ -6,7 +6,7 @@ In order for the `ipamLabel` to provide an IP address, you need to have a F5 IPA
 First lets verify that the IPAM is running.
 
 ```
-kubectl get po -n kube-system | grep f5ipam
+kubectl get po -n kube-system | grep f5-ipam
 
 **************** Expected Result ****************
 NAME                                      READY   STATUS    RESTARTS       AGE
@@ -16,7 +16,7 @@ f5ipam-5bf9fbdb5-dzqwd                    1/1     Running   12 (39h ago)   18d
 Review the IPAM IP ranges.
 
 ```
-kubectl -n kube-system describe deployment f5ipam
+kubectl -n kube-system describe deployment f5-ipam
 
 **************** Expected Result ****************
 ...
@@ -25,7 +25,7 @@ kubectl -n kube-system describe deployment f5ipam
       /app/bin/f5-ipam-controller
     Args:
       --orchestration=kubernetes
-      --ip-range='{"Dev":"10.1.10.181-10.1.10.190","Prod":"10.1.10.191-10.1.10.200"}'
+      --ip-range='{"dev":"10.1.10.181-10.1.10.190","prod":"10.1.10.191-10.1.10.200"}'
       --log-level=DEBUG
 ...
 ...
@@ -42,9 +42,12 @@ Confirm that the VS CRDs is deployed correctly. You should see `Ok` under the St
 kubectl get vs 
 ```
 Save the IP adresses that was assigned by the IPAM for this VirtualServer
+```
+IP=$(kubectl get vs ipam-vs --template '{{.status.vsAddress}}')
+```
 
 Try accessing the service as per the example below. 
 ```
-curl http://ipam.f5demo.local/ --resolve ipam.f5demo.local:80:<IP Address assigned by IPAM>
+curl http://ipam.f5demo.local/ --resolve ipam.f5demo.local:80:$IP
 ```
 
