@@ -2,10 +2,8 @@
 
 In this section we provide 4 Virtual Server deployment examples
 
-- [TLS Ingress (certificate on K8s)](#tls-ingress-certificate-on-k8s)
-- [TLS Ingress (certificate on BIGIP)](#tls-ingress-certificate-on-bigip)
-- [Multi-TLS Ingress (certificate on BIGIP)](#multi-tls-ingress-certificate-on-bigip)
-
+- [App Root Rewrite (rewriteAppRoot)](#app-root-rewrite-rewriteAppRoot)
+- [Path Rewrite (rewrite)](#path-rewrite-rewrite)
 
 
 ## App Root Rewrite (rewriteAppRoot)
@@ -45,8 +43,7 @@ Access the service using curl.
 curl -v http://approot.f5demo.local/ --resolve approot.f5demo.local:80:10.1.10.95
 ```
 
-Note that on the first example we receive a 302 redirect from BIGIP to /home while on the second example the path is rewritten from `/lib` to `/library`
-
+You should receive a 302 redirect from BIGIP with Location Header set as `/home`.
 
 
 ## Path Rewrite (rewrite)
