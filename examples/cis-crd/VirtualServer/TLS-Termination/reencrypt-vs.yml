@@ -4,7 +4,6 @@ metadata:
   labels:
     f5cr: "true"
   name: reencrypt-tls-vs
-  namespace: nginx
 spec:
   host: reencrypt.f5demo.local
   tlsProfileName: reencrypt-tls
@@ -12,5 +11,5 @@ spec:
   virtualServerName: "reencrypt-tls-vs"
   pools:
   - path: /
-    service: nginx-plus
-    servicePort: 443
+    service: secure-app
+    servicePort: 8443

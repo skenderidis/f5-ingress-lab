@@ -120,7 +120,9 @@ Verify that the  transaction that contains the attack gets blocked by BIGIP WAF.
     <title>Request Rejected</title>
   </head>
   <body>
-    The requested URL was rejected. Please consult with your administrator.<br><br>Your support ID is: 4045204596866416688<br><br><a href='javascript:history.back();'>[Go Back]</a>
+    The requested URL was rejected. Please consult with your administrator.<br><br>
+    Your support ID is: 4045204596866416688<br><br>
+    <a href='javascript:history.back();'>[Go Back]</a>
   </body>
 </html>
 ```

@@ -2,11 +2,10 @@
 
 This section demonstrates the options to configure virtual server using Wildcard Host.
 
-- HTTP Virtual Server with wildcard Host Parameter
-- HTTPS Virtual Server with wildcard Host Parameter
+ - [HTTP Virtual Server with wildcard Host parameter](#http-virtual-server-with-wildcard-host-parameter)
+ - [HTTPS Virtual Server with wildcard Host parameter](#https-virtual-server-with-wildcard-host-parameter)
 
-
-## Create a HTTP Virtual Server with wildcard Host parameter.
+## HTTP Virtual Server with wildcard Host parameter
 
 This section demonstrates the deployment of a Virtual Server with wildcard Host parameter.
 The virtual server should send traffic to the backend service if the Host Header matches the wildcard value configured on the Host parameter.
@@ -64,7 +63,7 @@ Verify that you traffic was forwarded to the `echo-svc` service on both tests.
 
 
 
-## Create a HTTPS Virtual Server with wildcard Host parameter.
+## HTTPS Virtual Server with wildcard Host parameter
 
 This section demonstrates the deployment of a HTTPS Virtual Server with wildcard Host parameter.
 The virtual server should send traffic to the backend service if the Host Header matches the wildcard value configured on the Host parameter.

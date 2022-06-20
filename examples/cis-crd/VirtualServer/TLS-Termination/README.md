@@ -1,15 +1,13 @@
 # Secure TLS Virtual Server
 This section demonstrates the three option to configure VirtualServer TLS termination:
- - Edge TLS
- - Re-encrypt TLS
- - Passthrough TLS
- - Edge TLS with certificate as K8s secret
+ - [Edge TLS](#edge-tls-termination)
+ - [Re-Encrypt TLS](#re-encrypt-tls-termination)
+ - [Passthrough TLS](#passthrough-tls-termination)
 
 
-## Secure Virtual Server with Edge TLS Termination 
+## Edge TLS Termination 
 This section demonstrates how to configure VirtualServer with edge TLS termination.
 For this configuration we will need 2 custom resources; TLSProfile and VirtualServer. Please find the yaml examples below
-
 
 Eg: edge-tls.yml
 ```yml
@@ -63,7 +61,7 @@ curl -vk https://edge.f5demo.local/ --resolve edge.f5demo.local:443:10.1.10.121
 ```
 
 
-## Secure Virtual Server with Re-Encrypt TLS Termination
+## Re-Encrypt TLS Termination
 This section demonstrates how to configure VirtualServer with re-encrypt TLS termination.
 For this configuration we will need 2 custom resources; TLSProfile and VirtualServer. Please find the yaml examples below
 
@@ -116,14 +114,14 @@ Confirm that the VS CRD is deployed correctly. You should see `Ok` under the Sta
 kubectl get vs 
 ```
 
-Access the `echo-svc` service using the following example. 
+Access the `secure-app` service using the following example. 
 ```
 curl -vk https://reencrypt.f5demo.local/ --resolve reencrypt.f5demo.local:443:10.1.10.122
 ```
 
 
 
-## Secure Virtual Server with Passthrough TLS Termination
+## Passthrough TLS Termination
 This section demonstrates how to configure VirtualServer with passthrough TLS termination.
 For this configuration we will need 2 custom resources; TLSProfile and VirtualServer. Please find the yaml examples below
 
@@ -226,7 +224,7 @@ metadata:
   namespace: default
 spec:
   host: k8s.f5demo.local
-  virtualServerAddress: 10.1.10.123
+  virtualServerAddress: 10.1.10.124
   virtualServerName: "k8s-tls-vs"
   tlsProfileName: k8s-tls
   pools:
@@ -249,5 +247,5 @@ kubectl get vs
 
 Access the `echo-svc` service using the following example. 
 ```
-curl -vk https://k8s.f5demo.local/ --resolve k8s.f5demo.local:443:10.1.10.123
+curl -vk https://k8s.f5demo.local/ --resolve k8s.f5demo.local:443:10.1.10.124
 ```
