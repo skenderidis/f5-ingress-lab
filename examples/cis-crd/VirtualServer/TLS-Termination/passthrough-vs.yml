@@ -4,7 +4,6 @@ metadata:
   labels:
     f5cr: "true"
   name: passthrough-tls-vs
-  namespace: nginx
 spec:
   host: passthrough.f5demo.local
   tlsProfileName: passthrough-tls
@@ -12,6 +11,6 @@ spec:
   virtualServerName: "passthrough-tls-vs"
   pools:
   - path: /
-    service: nginx-plus
-    servicePort: 443
+    service: secure-app
+    servicePort: 8443
 

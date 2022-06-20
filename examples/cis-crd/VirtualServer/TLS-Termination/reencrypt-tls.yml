@@ -4,7 +4,6 @@ metadata:
   name: reencrypt-tls
   labels:
     f5cr: "true"
-  namespace: nginx
 spec:
   hosts:
     - reencrypt.f5demo.local
