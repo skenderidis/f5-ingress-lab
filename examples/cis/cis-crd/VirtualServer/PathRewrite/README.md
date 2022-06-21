@@ -1,12 +1,12 @@
 # Rewrite Examples
 
-In this section we provide 4 Virtual Server deployment examples
+In this section we provide 2 rewrite examples. One for AppRoot rewrite and another for URI Path rewrite.
 
-- [App Root Rewrite (rewriteAppRoot)](#app-root-rewrite-rewriteAppRoot)
-- [Path Rewrite (rewrite)](#path-rewrite-rewrite)
+- [AppRoot rewrite (rewriteAppRoot)](#approot-rewrite)
+- [URI Path rewrite (rewrite)](#uri-path-rewrite)
 
 
-## App Root Rewrite (rewriteAppRoot)
+## AppRoot rewrite
 Redirecting the application to specific path when request made with root path "/".
 The path changes, but the pool with path "/" gets served.
 
@@ -46,7 +46,7 @@ curl -v http://approot.f5demo.local/ --resolve approot.f5demo.local:80:10.1.10.9
 You should receive a 302 redirect from BIGIP with Location Header set as `/home`.
 
 
-## Path Rewrite (rewrite)
+## URI Path rewrite
 Rewriting the path in HTTP Header of a request before submitting to the pool
 
 Eg: rewrite.yml

@@ -1,7 +1,7 @@
 # Health Monitor
 
-This section demonstrates the option to configure health monitor for pools in virtual server.
-Heath monitor is supported for each pool members. 
+This section demonstrates the option to configure health monitors for kubernetes services that BIGIP will use to monitor the availability of services.
+Heath monitors need to be defined per pool. 
 
 Eg: health-vs
 ```yml

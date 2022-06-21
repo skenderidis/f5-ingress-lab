@@ -30,10 +30,9 @@ Credentials are documented inside the UDF Summary page.
 ## Use-Cases / Demos
 In this UDF we will demo a number of use-cases around modern applications. These use-cases can be found below:
 
-- **Reverse Proxy capabilities with CIS** <br>
-- [**Reverse Proxy capabilities with CIS** ](examples)
+- [**Reverse Proxy capabilities with CIS**](examples/cis/README.md)
 - **Monitoring services published via NGINX+** <br>
-- **Monitoring services published via BIGIP** <br>
+- **Monitoring services published via BIGIP with Prometheus, Grafana and Elastic** <br>
 - **Publishing NGINX+ Ingress with BIGIP** <br>
 - **DNS Publishing of K8s services with CIS EDNS CRDs** <br>
 - **ServiceType LoadBalancer with BIGIP** <br>

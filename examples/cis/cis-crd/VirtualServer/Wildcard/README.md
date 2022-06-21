@@ -1,13 +1,13 @@
 # Virtual Server with Wildcard Domain
 
-This section demonstrates the options to configure virtual server using Wildcard Host.
+This section demonstrates the options to configure virtual server using Wildcard Hostname parameter for both HTTP and HTTPS.
 
  - [HTTP Virtual Server with wildcard Host parameter](#http-virtual-server-with-wildcard-host-parameter)
  - [HTTPS Virtual Server with wildcard Host parameter](#https-virtual-server-with-wildcard-host-parameter)
 
 ## HTTP Virtual Server with wildcard Host parameter
 
-This section demonstrates the deployment of a Virtual Server with wildcard Host parameter.
+This section demonstrates the deployment of a **HTTP** Virtual Server with wildcard Host parameter.
 The virtual server should send traffic to the backend service if the Host Header matches the wildcard value configured on the Host parameter.
 
 Eg: wildcardhost-vs.yml
@@ -65,9 +65,9 @@ Verify that you traffic was forwarded to the `echo-svc` service on both tests.
 
 ## HTTPS Virtual Server with wildcard Host parameter
 
-This section demonstrates the deployment of a HTTPS Virtual Server with wildcard Host parameter.
+This section demonstrates the deployment of a **HTTPS** Virtual Server with wildcard Host parameter.
 The virtual server should send traffic to the backend service if the Host Header matches the wildcard value configured on the Host parameter.
-In this example we will use 2 custom resources; TLSProfile and VirtualServer
+For this example we need to use 2 custom resources; TLSProfile and VirtualServer
 
 
 Eg: wildcardhost-tls.yml
@@ -145,17 +145,3 @@ curl -k https://test10.f5demo.local/ --resolve test10.f5demo.local:80:10.1.10.93
 ```
 
 Verify that you traffic was forwarded to the `echo-svc` service on both tests.
-
-
-
-
-
-
-
-
-## tls-with-wildcardhost.yaml
-By deploying this yaml file in your cluster, CIS will create a TLSProfile with wildcrad domain name.
-
-## virtual-with-wildcardhost.yaml
-
-By deploying this yaml file in your cluster, CIS will create a Virtual Server on BIG-IP with wildcard domain name.

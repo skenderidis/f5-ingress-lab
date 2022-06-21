@@ -1,7 +1,6 @@
-# Virtual Server with IPAM Label
+# VirtualServer with Dynamic IP Allocation (IPAM)
 
-This section demonstrates the option to configure virtual server using IPAM label to manage the virtual server address. 
-In order for the `ipamLabel` to provide an IP address, you need to have a F5 IPAM controller running and with the defined Labels/IP-ranges.
+This section demonstrates the F5 IPAM functionality, where teh VirtualServer IP Address is dynamically provieded by the IPAM Controller. 
 
 First lets verify that the IPAM is running.
 

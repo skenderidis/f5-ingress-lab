@@ -1,13 +1,13 @@
 # Configure behaviour of HTTP Virtual Server
 
-This section demonstrates how to configuring the parameter httpTraffic on the VirtualServer resources changes the behaviour of the HTTP Virtual Server on BIGIP.
-There are 3 options
+This section demonstrates how to configuring the parameter httpTraffic on the VirtualServer resources changes the behaviour of the BIGIP Virtual Server.
+There are 3 options:
 
  - httpTraffic = allow -> Allows HTTP (Default)
  - httpTraffic = none  -> Only HTTPS
  - httpTraffic = redirect -> redirects HTTP to HTTPS
 
-In this example we will use `httpTraffic = redirect` on the VirtualServer resource so that F5 redirects traffic coming on port 80 to port 443.
+In this example we will use `httpTraffic = redirect` on the VirtualServer resource so that BIGIP redirects traffic coming on port 80 to port 443.
 
 
 Eg: redirect-tls.yml

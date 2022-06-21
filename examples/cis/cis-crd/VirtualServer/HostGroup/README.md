@@ -1,12 +1,16 @@
-# Virtual Server with Host Group
+# Virtual Server with Host Group (Host Based Routing)
+
+The `HostGroup` feature allows CIS to support Host based routing. This is similar to how Ingress Resources operate. The benefit of using the `HostGroup` feature is the ability to reuse the same IP Address on BIG-IP.
+You can configure VirtualServer CRD using the `HostGroup` parameter to club multiple VirtualServer CRD with different hostnames into a single BIG-IP VirtualServer.
+
+We provide the following 2 examples for the `HostGroup` feature: 
+- [HTTP Virtual Server with Host Based Routing](#http-virtual-server-with-host-based-routing)
+- [HTTP Virtual Server with Host Based Routing and IPAM](#http-virtual-server-with-host-based-routing-and-ipam)
 
 
-The Multi-host feature allows CIS to support a single HTTP VirtualServer on BIG-IP for different hostnames. This is similar to how OpenShift routes work today. The benefit of using the multi-host feature is the ability to reuse the same IP Address on BIG-IP.
-You can configure VirtualServer CRD using the hostGroup parameter to club virtual servers with different hostnames into one in BIG-IP.
+## HTTP Virtual Server with Host Based Routing
 
-## virtual-with-hostGroup.yaml
-
-This section demonstrates the option to configure virtual server using Host Group to club virtual servers with different host names into one in VIP. 
+This section demonstrates the `HostGroup` feature with two VirtualServer CRDs.
 
 Eg: virtual-with-hostGroup.yml
 ```yml
@@ -74,7 +78,7 @@ curl http://app2.f5demo.local/ --resolve app2.f5demo.local:80:10.1.10.100
 Verify that the traffic was forwarded to the `app1-svc` and `app2-svc` services as per the Hostname.
 
 
-## virtual-with-hostGroup-ipam.yaml
+## HTTP Virtual Server with Host Based Routing and IPAM
 
 In this example we are using again hostGroup to club Virtual Servers together but we are using `ipamLabel` insted of `virtualServerAddress` in order to create a VirtualServer IP.
 
