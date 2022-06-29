@@ -5,6 +5,8 @@ Policy is used to apply existing BIG-IP profiles and policy with Virtual Server 
 This section demonstrates the deployment of a Virtual Server with custom HTTP, Persistence, iRule and WAF Profiles with PolicyCRD.
 
 - [PolicyCRD XFF](#policycrd-xff)
+- [PolicyCRD WAF](#policycrd-persistence)
+- [PolicyCRD WAF](#policycrd-iRule)
 - [PolicyCRD WAF](#policycrd-waf)
 
 ## PolicyCRD XFF
@@ -60,7 +62,7 @@ curl -v http://policy.f5demo.local/ --resolve policy.f5demo.local:80:10.1.10.97
 Verify that the `x-forwarded-for` Header exists and contains the client's actual IP
 
 
-## PolicyCRD Persistence
+## PolicyCRD persistence
 The default persistence that is configured with CIS is **/Common/cookie**. In this section we will demonstrate the deployment of a Virtual Server with persistence profile set to **None**.
 
 Eg: VirtualServer / PolicyCRD 
@@ -157,16 +159,14 @@ Confirm that the VS CRD is deployed correctly. You should see `Ok` under the Sta
 kubectl get vs 
 ```
 
-On the BIGIP we created a new Persistence Cookie profile called **cookie-new**, on the Common Partition, to provide persistence per HTTP session and save the information on a HTTP Cookie. This profile has been reference on the PolicyCRD.
+On the BIGIP we created an iRule  called **sorry-page**, on the Common Partition, that responds to the user with a "Sorry the page is under maintainance" This iRule has been reference on the PolicyCRD.
 
 Access the service few times using the following example.
 ```
 curl -v http://policy.f5demo.local/ --resolve policy.f5demo.local:80:10.1.10.199
-curl -v http://policy.f5demo.local/ --resolve policy.f5demo.local:80:10.1.10.199
-curl -v http://policy.f5demo.local/ --resolve policy.f5demo.local:80:10.1.10.199
 ```
 
-Verify that the `BIGipCookie` Header exists and contains the client's actual IP
+Verify that the sorry page is sent back from BIGIP.
 
 
 

@@ -31,13 +31,15 @@ Credentials are documented inside the UDF Summary page.
 In this UDF we will demo a number of use-cases around modern applications. These use-cases can be found below:
 
 - [**Reverse Proxy capabilities with CIS**](examples/cis/README.md)
-- **Monitoring services published via NGINX+** <br>
-- **Monitoring services published via BIGIP with Prometheus, Grafana and Elastic** <br>
+- **Monitoring K8s services published via NGINX+ with Prometheus, Grafana and Elastic** <br>
+- **Monitoring K8s services published via BIGIP with Prometheus, Grafana and Elastic** <br>
+
+
 - **Publishing NGINX+ Ingress with BIGIP** <br>
 - **DNS Publishing of K8s services with CIS EDNS CRDs** <br>
-- **ServiceType LoadBalancer with BIGIP** <br>
-- **Securing K8s services against L7 DDoS attacks with BIGIP/NGINX+** <br>
-- **Securing K8s services against L3 DDoS attacks with BIGIP** <br>
-- **Protecting K8s applications against web application attacks with BIGIP/NGINX+** <br>
 - **Deploy Active-Active or Active-Standby services in a multicluster K8s with CIS and NGINX** <br>
+- **ServiceType LoadBalancer with BIGIP** <br>
+- **Securing K8s services against L3 DDoS attacks with BIGIP** <br>
+- **Securing K8s services against L7 DDoS attacks with NGINX+** <br>
+- **Protecting K8s applications against web application attacks with BIGIP/NGINX+** <br>
 
