@@ -6,6 +6,9 @@ In this section we go through how you can efectively to monitor K8s services tha
 - Grafana
 - Telemetry Streaming (F5)
 
+<img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/UDF-Lab-Monitoring-BIGIP.png">
+
+
 The dashboards that have been created to assist with the monitoring of the K8s services are:
   - [**CIS Dashboard**](#cis-dashboard)
   - [**Client/Server SSL Performance**](#clientserver-ssl-dashboard)
@@ -86,7 +89,6 @@ VS Access logs dashboard provides insight on the HTTP Request/Response transacti
 
 
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/access-logs.png">
-
 
 >:information_source:
 >  The source of information used to create this dashboard is Elasticsearch.
