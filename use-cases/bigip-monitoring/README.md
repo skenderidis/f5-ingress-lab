@@ -28,7 +28,7 @@ The dashboard provides visibility on the following:
 
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/dashboard.png">
 
-
+>:information_source:
 > **Note:** The source of information used to create this dashboard is Prometheus.
 
 ## Client/Server SSL Dashboard
