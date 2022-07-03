@@ -29,7 +29,7 @@ The dashboard provides visibility on the following:
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/dashboard.png">
 
 >:information_source:
-> **Note:** The source of information used to create this dashboard is Prometheus.
+>  The source of information used to create this dashboard is Prometheus.
 
 ## Client/Server SSL Dashboard
 Both Client and Server SSL dashboards provide insight on multiple SSL metrics. The information provided on this dashboard includes:
@@ -42,6 +42,8 @@ Both Client and Server SSL dashboards provide insight on multiple SSL metrics. T
 
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/client-ssl.png">
 
+>:information_source:
+>  The source of information used to create this dashboard is Prometheus.
 
 ## Pools Dashboard
 In the Pool dashboard we provide more details on the utilization and transaction for a specific pool and its members. The information provided from this dashboard includes:
@@ -53,19 +55,41 @@ In the Pool dashboard we provide more details on the utilization and transaction
 
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/pools.png">
 
+>:information_source:
+>  The source of information used to create this dashboard is Prometheus.
 
 ## HTTP Profile Dashboard
 In the HTTP Profile dashboard we get a detail view on the HTTP response code (2xx, 3xx, 4xx, 5xx) per HTTP Profile and can observe the trend over time.
 
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/http-profile.png">
 
-## VS Access Logs
-In this dashboard we get the HTTP response code (2xx, 3xx, 4xx, 5xx) per HTTP Profile and we can observe the behaviour over time.
+>:information_source:
+>  The source of information used to create this dashboard is Prometheus.
+
+## VS Access Logs Dashboard
+VS Access logs dashbaord provides insight on the HTTP Request/Response transaction details. The transactions details have been recorded on BIGIP thought the use of an iRule that has been enabled for specific Virtual Servers. The iRule can record all transactions proccessed by a VS (and send to Elastic via Telemetry streaming) but it is recommended to be modified to record "key" transactions, like slow and/or failed transactions. In addition the iRule can be modified to record additional information like a specific HTTP Header/cookie.   
+ The information provided from this dashboard includes:
+- Total transactions
+- HTTP Responses (2xx, 3xx, 4xx, 5xx)
+- Avg Response Time
+- Top Virutal Servers 
+- Top Pools
+- Top Pool Members
+- Top Clients 
+- Top Countries
+- Top User Agents
+- Transactions over time
+- Response time over time
+- Response time per URL
+- World Map View
+- Detail Logs per transaction
+
+
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/access-logs.png">
 
 
-
-
+>:information_source:
+>  The source of information used to create this dashboard is Elasticsearch.
 
 
 **Telemetry Streaming**
