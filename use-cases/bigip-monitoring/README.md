@@ -7,17 +7,15 @@ In this section we go through how you can efectively to monitor K8s services tha
 - Telemetry Streaming (F5)
 
 The dashboards that have been created to assist with the monitoring of the K8s services are:
-  - CIS Dashboard
-  - Client/Server SSL Performance
-  - HTTP Profiles
-  - Pools
-  - VS Access Logs
-  - BIGIP Error Logs (to be completed)
+  - [**CIS Dashboard**](#cis-dashboard)
+  - [**Client/Server SSL Performance**](#clientserver-ssl-dashboard)
+  - [**HTTP Profiles**](#http-profiles) 
+  - [**Pools**](#pools-dashboard)
+  - [**VS Access Logs**](#vs-access-logs)
+  - BIGIP Error Logs (**pending**)
 
 ## CIS Dashboard
-This dashboard provides an overall view on the utilization and performance of the applications handled by BIGIP. The source of information for this dashboard is Prometheus.
-<img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/dashboard.png">
-
+This dashboard provides an overall view on the utilization and performance of the applications handled by BIGIP. 
 The dashboard provides visibility on the following:
 - Total number of Virtual Servers, Pools and Members on the BIGIP appliances
 - HTTP Reponse Codes (2xx, 3xx, 4xx and 5xx) for the specific period across the entire appliance
@@ -28,28 +26,28 @@ The dashboard provides visibility on the following:
 - HTTP Profile stastics 
 - Utilization and L7 TPS over time
 
+<img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/dashboard.png">
 
-## Client SSL Dashboard
-In this dashboard we can check multiple SSL metrics, from the SSL version, to the cipher, to the key exhange used. We can verify any SSL failure and check if the SSL offloading is happening on hardware or software.
-<img src="https://raw.githubusercontent.com/skenderidis/oltra/main/use-cases/bigip-monitoring/images/client-ssl.png">
 
-## Server SSL Dashboard
-In this dashboard we can check multiple SSL metrics, from the SSL version, to the cipher, to the key exhange used. We can verify any SSL failure and check if the SSL offloading is happening on hardware or software.
-<img src="https://raw.githubusercontent.com/skenderidis/oltra/main/use-cases/bigip-monitoring/images/client-ssl.png">
+> The source of information used to create this dashboard is Prometheus.
+
+## Client/Server SSL Dashboard
+For both Client and Server SSL dashboards we check multiple SSL metrics, from the SSL version, to the cipher, to the key exhange used. We can verify any SSL failure and check if the SSL offloading is happening on hardware or software.
+<img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/client-ssl.png">
 
 
 ## Pools Dashboard
 In this dashboard we provide more details on the utilization and transaction for a specific pool and its memebers. You can also monitor Pool member's availability along with statistics and utilization over time. 
-<img src="https://raw.githubusercontent.com/skenderidis/oltra/main/use-cases/bigip-monitoring/images/client-ssl.png">
+<img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/pools.png">
 
 
 ## HTTP Profile Dashboard
 In this dashboard we get the HTTP response code (2xx, 3xx, 4xx, 5xx) per HTTP Profile and we can observe the behaviour over time.
-<img src="https://raw.githubusercontent.com/skenderidis/oltra/main/use-cases/bigip-monitoring/images/client-ssl.png">
+<img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/http-profile.png">
 
 ## VS Access Logs
 In this dashboard we get the HTTP response code (2xx, 3xx, 4xx, 5xx) per HTTP Profile and we can observe the behaviour over time.
-<img src="https://raw.githubusercontent.com/skenderidis/oltra/main/use-cases/bigip-monitoring/images/client-ssl.png">
+<img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/access-logs.png">
 
 
 
