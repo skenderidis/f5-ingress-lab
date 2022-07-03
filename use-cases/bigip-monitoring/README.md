@@ -29,20 +29,34 @@ The dashboard provides visibility on the following:
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/dashboard.png">
 
 
-> The source of information used to create this dashboard is Prometheus.
+> **Note:** The source of information used to create this dashboard is Prometheus.
 
 ## Client/Server SSL Dashboard
-For both Client and Server SSL dashboards we check multiple SSL metrics, from the SSL version, to the cipher, to the key exhange used. We can verify any SSL failure and check if the SSL offloading is happening on hardware or software.
+Both Client and Server SSL dashboards provide insight on multiple SSL metrics. The information provided on this dashboard includes:
+- SSL transaction over time
+- SSL transaction offloaded on software vs Hardware
+- SSL Failure
+- SSL Version
+- SSL Cipher used
+- SSL Key exchange
+
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/client-ssl.png">
 
 
 ## Pools Dashboard
-In this dashboard we provide more details on the utilization and transaction for a specific pool and its memebers. You can also monitor Pool member's availability along with statistics and utilization over time. 
+In the Pool dashboard we provide more details on the utilization and transaction for a specific pool and its members. The information provided from this dashboard includes:
+- Total number of Pool Members
+- Pool member availability (%)
+- Usage stastitics per member
+- Transactions over time (per member)
+- Utilization over time (per memeber)
+
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/pools.png">
 
 
 ## HTTP Profile Dashboard
-In this dashboard we get the HTTP response code (2xx, 3xx, 4xx, 5xx) per HTTP Profile and we can observe the behaviour over time.
+In the HTTP Profile dashboard we get a detail view on the HTTP response code (2xx, 3xx, 4xx, 5xx) per HTTP Profile and can observe the trend over time.
+
 <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/http-profile.png">
 
 ## VS Access Logs
