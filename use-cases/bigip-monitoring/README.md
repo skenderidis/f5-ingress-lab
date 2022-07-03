@@ -1,10 +1,5 @@
 # Monitoring services published via BIGIP with Prometheus, Grafana and Elastic
-In this section we go through how you can efectively to monitor K8s services that are being delivered by BIGIP/CIS with an observability platform. The technologies that are part of the observability platform are the following:
-- Prometheus
-- Logstash
-- Elasticsearch
-- Grafana
-- Telemetry Streaming (F5)
+In this section we go through how you can efectively to monitor K8s services that are being delivered by BIGIP/CIS with an observability platform. The technologies that are part of the observability platform are [**Prometheus**](#prometheus), [**Elasticsearch**](#elasticsearch), [**Grafana**](#grafana) and [**Telemetry Streaming (F5)**](#telemetry-streaming). 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/skenderidis/f5-ingress-lab/main/use-cases/bigip-monitoring/images/UDF-Lab-Monitoring-BIGIP.png" style="width:75%">
