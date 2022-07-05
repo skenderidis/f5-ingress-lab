@@ -41,18 +41,84 @@ BIGIP role in the design is to publish the NGINX IC outside of the Kubernetes en
 
 **Discovery**
 
-In order for CIS to discover the NGINX IC services running in each tenant, it is required to deploy a CIS CRD (VirtualServer, TransportServer or IngressLink) on the same namespace that the IC is running. The CRD will define how the IC needs to be published on the BIGIP and what are the services that need to be configured; SSL Offloading, WAF, DDoS, HTTP Profiles, etc.
+In order for CIS to discover the NGINX IC services running in each tenant, it is required to deploy a CIS CRD (**VirtualServer**, **TransportServer** or **IngressLink**) on the same namespaces that the IC are running. The CRDs will define how the IC needs to be published on BIGIP and what are the optional services that need to be configured; **SSL Offloading**, **WAF**, **BOT Mitigation**, **DDoS**, **HTTP Profiles**, etc.
 
 **Seperation.** 
 
 Given the fact that we are sharing the same BIGIP device across all tenants, one of the most important things to consider how to allocate an IP address without creating conflict between the tenants. The way to achieve this is by using the F5 IPAM controller. The IPAM controller will be configured with different labels for each tenat and each label will contain the IP ranges assigned for the tenants.
 These labels must be referenced on the CIS CRDs that will be used to publish the NGINX IC services.
 
-
 More information on CIS and IPAM can be found on the following links:
 - [CIS](https://clouddocs.f5.com/containers/latest/)
 - [CIS CRDs](https://clouddocs.f5.com/containers/latest/userguide/crd/)
 - [IPAM Controller](https://clouddocs.f5.com/containers/latest/userguide/ipam/)
 
+
 ## Demo 
 
+### Step 1. Tentants
+
+Create the Namespace for each tenant (Customer-A, Customer-B)
+```
+$ kubectl apply -f ns_tenants.yaml
+```
+
+### Step 2. NGINX+ Ingress Controller
+
+Create for each tenant an NGINX+ Ingress Controller deployment
+```
+$ kubectl apply -f nginx_tenants.yaml
+```
+
+### Step 3. BIGIP CIS / IPAM 
+
+Verify that both CIS and IPAM are deployed and running
+```
+$ kubectl apply -f nginx_tenants.yaml
+```
+
+Verify that IPAM labels are configured for both Customer-A and Customer-B
+```
+$ kubectl apply -f nginx_tenants.yaml
+```
+
+### Step 4. Publish Ingress Controller
+
+Create a CIS CRD (VirtualServer) for each ...
+```yaml
+asdasd
+asd
+asd
+as
+d
+```
+
+
+```
+$ kubectl apply -f nginx_tenants.yaml
+```
+
+Verify that the IPs are published...
+
+
+### Step 5. Deploy applications
+
+For each tenant deploy few demo applications
+
+```
+$ kubectl apply -f nginx_tenants.yaml
+```
+
+Publish these applications on the Ingress Controller
+
+```
+$ kubectl apply -f nginx_tenants.yaml
+```
+
+Access these services outside the environment
+
+
+### Step 6. Dashboards
+
+
+### Step 7. Remove environment
