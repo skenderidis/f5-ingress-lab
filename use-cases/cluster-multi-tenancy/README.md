@@ -43,10 +43,15 @@ BIGIP role in the design is to publish the NGINX IC outside of the Kubernetes en
 
 In order for CIS to discover the NGINX IC services running in each tenant, it is required to deploy a CIS CRD (**VirtualServer**, **TransportServer** or **IngressLink**) on the same namespaces that the IC are running. The CRDs will define how the IC needs to be published on BIGIP and what are the optional services that need to be configured; **SSL Offloading**, **WAF**, **BOT Mitigation**, **DDoS**, **HTTP Profiles**, etc.
 
-**Seperation.** 
+**Seperation** 
 
-Given the fact that we are sharing the same BIGIP device across all tenants, one of the most important things to consider how to allocate an IP address without creating conflict between the tenants. The way to achieve this is by using the F5 IPAM controller. The IPAM controller will be configured with different labels for each tenat and each label will contain the IP ranges assigned for the tenants.
+Given the fact that we are sharing the same BIGIP device across all tenants, we need to consider how to allocate an IP address without creating conflict between tenants. The way to achieve this is by using F5's IPAM controller. The IPAM controller will be configured with different label per tenat and each label will define the IP ranges that are assigned per tenant.
 These labels must be referenced on the CIS CRDs that will be used to publish the NGINX IC services.
+
+> **Note:** How to avoid tenats changing IPAM labels <br>
+> **Option 1.** CIS CRDs are deployed/managed by the Kubernetes administrator and the tenant has read-only rights.<br>
+> **Option 2.** CIS CRDs can only be deployed throught a pipeline that verifies the right usage of the labels. Manifests are created/stored on a GIT by the tenant and then a pipeline applies the desired state on the K8s cluster. Tenant has read-only rights on the CRDs. <br>
+> **Option 3.** Finally as the last option we can use [**OPA Gatekeeper**](https://open-policy-agent.github.io/gatekeeper/website/docs/). Gatekeeper's engine is designed to be portable, allowing administrators to detect and reject non-compliant commits to an infrastructure-as-code system's source-of-truth, further strengthening compliance efforts and preventing bad state from slowing down the organization. Therefore the administrator can set the label values that need to be present on the CIS CRD in order for it to be accepted. 
 
 More information on CIS and IPAM can be found on the following links:
 - [CIS](https://clouddocs.f5.com/containers/latest/)
@@ -65,57 +70,91 @@ $ kubectl apply -f ns_tenants.yaml
 
 ### Step 2. NGINX+ Ingress Controller
 
-Create for each tenant an NGINX+ Ingress Controller deployment
+Create for each tenant an NGINX+ Ingress Controller deployment. 
 ```
 $ kubectl apply -f nginx_tenants.yaml
+```
+
+Verify that 2 NGINX pods are up and running on each tenant 
+```
+$ kubectl get pods -n customer-a -n cudstomer-b
+
+....
+
+
+
+
 ```
 
 ### Step 3. BIGIP CIS / IPAM 
 
-Verify that both CIS and IPAM are deployed and running
+CIS and IPAM are already setup and running on the K8s cluster.
 ```
-$ kubectl apply -f nginx_tenants.yaml
+$ kubectl get po -n kube-sytem | grep f5
 ```
 
 Verify that IPAM labels are configured for both Customer-A and Customer-B
 ```
-$ kubectl apply -f nginx_tenants.yaml
+$ kubectl describe deployment f5-ipam -n kube-sytem
+
+....
+
 ```
 
 ### Step 4. Publish Ingress Controller
 
-Create a CIS CRD (VirtualServer) for each ...
+In this step we will publish the NGINX IC by creating a CIS CRD (TransportServer) on each namespace. An example of such CRD can be found below.
 ```yaml
-asdasd
-asd
-asd
-as
-d
+apiVersion: "cis.f5.com/v1"
+kind: TransportServer
+metadata:
+  labels:
+    f5cr: "true"
+  name: nginx-customer-a
+  namespace: customer-a
+spec:
+  ipamLabel: "customer-a"
+  virtualServerPort: 80
+  virtualServerName: nginx-customer-a
+  mode: standard
+  snat: auto
+  pool:
+    service: nginx-svc
+    servicePort: 80
+    monitor:
+      type: tcp
+      interval: 3
+      timeout: 10
 ```
 
+Deploy CIS Transport Server CRDs
 
 ```
-$ kubectl apply -f nginx_tenants.yaml
+$ kubectl apply -f ts_crds.yaml
 ```
 
-Verify that the IPs are published...
+Verify that CRDs have been deployed successuly.
+
+
+Send a 
 
 
 ### Step 5. Deploy applications
 
-For each tenant deploy few demo applications
+For each tenant deploy 2 demo applications
+
+```
+$ kubectl apply -f apps.yaml
+```
+
+Publish the applications through Ingress under different FQDNs.
 
 ```
 $ kubectl apply -f nginx_tenants.yaml
 ```
 
-Publish these applications on the Ingress Controller
+Try and access these services.
 
-```
-$ kubectl apply -f nginx_tenants.yaml
-```
-
-Access these services outside the environment
 
 
 ### Step 6. Dashboards
